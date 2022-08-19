@@ -20,6 +20,7 @@ export class DreamsService {
     const createdDream: DreamDocument = new this.dreamsModel({
       title: dreamsDto.title,
       type: dreamsDto.type,
+      description: dreamsDto.description,
       date: moment(dreamsDto.date, ['MM-DD-YYYY', 'DD-MM-YYYY']).format(
         'MM-DD-YYYY',
       ),
@@ -82,6 +83,9 @@ export class DreamsService {
       );
       if (dreamToUpdate.title) {
         dreamToUpdate.title = dreamsDto.title;
+      }
+      if (dreamToUpdate.description) {
+        dreamToUpdate.description = dreamsDto.description;
       }
       if (dreamToUpdate.type) {
         dreamToUpdate.type = dreamsDto.type;

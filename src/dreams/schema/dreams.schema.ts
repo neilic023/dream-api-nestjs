@@ -20,6 +20,9 @@ export class Dream {
   type: Types;
 
   @Prop({ required: true })
+  description: string;
+
+  @Prop({ required: true })
   date: string;
 }
 

@@ -15,6 +15,15 @@ class BaseDreamsDto {
 
   @ApiProperty({
     type: String,
+    description: "Dream's description",
+    example: 'I was in wonderland and happy',
+  })
+  @IsNotEmpty()
+  @IsString()
+  description: string;
+
+  @ApiProperty({
+    type: String,
     description: "Dream's type",
     example: 'happy',
   })
