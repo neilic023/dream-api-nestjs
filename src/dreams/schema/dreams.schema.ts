@@ -1,9 +1,9 @@
-import { Prop, Schema } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
 export type DreamDocument = Dream & Document;
 
-enum Types {
+export enum Types {
   Scary = 'scary',
   Happy = 'happy',
   Sad = 'sad',
@@ -11,7 +11,7 @@ enum Types {
   Excited = 'excited',
 }
 
-@Schema()
+@Schema({ timestamps: true })
 export class Dream {
   @Prop({ required: true })
   title: string;
@@ -20,7 +20,7 @@ export class Dream {
   type: Types;
 
   @Prop({ required: true })
-  date: Date;
+  date: string;
 }
 
 export const DreamSchema = SchemaFactory.createForClass(Dream);
